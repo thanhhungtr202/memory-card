@@ -1,12 +1,12 @@
 import { useState } from "react"
 import "../styles/index.css"
 
-function Card({numberValue, clickHandler}){
+function Card({numberValue, pokemonName, pokemonImg, clickHandler}){
 
     return(
         <div className="Card" onClick={clickHandler(numberValue)}>
-            <div className="cardImg"></div>
-            <p>Random Text {numberValue}</p>
+            <img src={pokemonImg} className="cardImg"/>
+            <p>{pokemonName}</p>
         </div>
     )
 }

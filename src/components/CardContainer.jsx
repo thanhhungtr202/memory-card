@@ -5,13 +5,12 @@ import Card from "./Card";
 
 function CardContainer({setFnc, resetFnc}){
     const [a, setA] = useState([1, 2, 3, 4, 5, 6, 7, 9]);
-    const [characters, setCharacters] = useState();
+    const [characters, setCharacters] = useState([]);
     const [selected, setselected] = useState([]);
 
     useEffect(() => {
-        let tempArr = a.sort(() => Math.random() - 0.5)
-        setA(tempArr);
-        console.log(a);
+        let tempArr = characters.sort(() => Math.random() - 0.5)
+        setCharacters(tempArr);
     }, [selected])
 
     useEffect(() => {
@@ -44,8 +43,15 @@ function CardContainer({setFnc, resetFnc}){
     }
     return(
         <div className="cardContainer">
-            {a.map((number) => {
-                return <Card numberValue={number} clickHandler={clickFnc} key={number}/>
+            {characters.map((pokemon, index) => {
+                return <Card
+                key={index}
+                numberValue={pokemon.id}
+                pokemonName={pokemon.name}
+                pokemonImg={pokemon.sprites.front_default}
+                clickHandler={clickFnc} 
+                
+                />
             })}
         </div>
     )
