@@ -1,10 +1,7 @@
 import { useState } from "react"
 import "../styles/index.css"
 
-function Info(){
-    const [currentScore, setCurrentScore] = useState(0);
-    const [bestScore, setBestScore] = useState(0);
-
+function Info({currentScore, bestScore}){
     return(
         <div className="info">
             <div className="title">
